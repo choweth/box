@@ -6,13 +6,10 @@ NUM_COLUMNS = 6
 
 
 def box_loc(dex_num):
-    _row = NUM_ROWS
-    _col = NUM_COLUMNS - 1
+    dex_num -= 1
     _box, _r = divmod(dex_num, NUM_SLOTS)
-    if _r:
-        _row, _col = divmod(_r, NUM_ROWS)
-    _col += 1
-    return f"Box {_box}, Row {_row}, Col {_col}"
+    _row, _col = divmod(_r, NUM_COLUMNS)
+    return f"Box {_box+1}, Row {_row+1}, Col {_col+1}"
 
 
 def box():
