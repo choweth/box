@@ -12,17 +12,20 @@ def box_loc(dex_num):
     if _r:
         _row, _col = divmod(_r, NUM_ROWS)
     _col += 1
-    return f"Box {_box}, Row {_row}, Col {_col}\n\n"
+    return f"Box {_box}, Row {_row}, Col {_col}"
 
 
 def box():
-    print("")
-    try:
-        user_input = input("Pokemon's NationalDex number: \n")
-        dex_val = int(user_input)
-        print(box_loc(dex_val))
-    except ValueError:
-        print("That's not a number!")
+    print("Reply with \"done\" or \"exit\" at any point to end")
+    while True:
+        try:
+            user_input = input("\nPokemon's NationalDex number: ")
+            if user_input.lower() in ["done", "exit"]:
+                return
+            dex_val = int(user_input)
+            print(box_loc(dex_val))
+        except ValueError:
+            print("That's not a number!")
 
 
 if __name__ == "__main__":
